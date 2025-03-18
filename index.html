@@ -1,40 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KODEEN</title>
+    <title>Purple Vignette Background</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
         body {
+            margin: 0;
+            height: 100vh;
             display: flex;
-            justify-content: center;
             align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            background: black;
+            justify-content: center;
+            background: url('KODEEN.png') no-repeat center center fixed;
+            background-size: cover;
+            transition: opacity 0.3s ease-in-out;
+            flex-direction: column;
         }
-        video {
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-            pointer-events: none;
+        .nav {
+            display: flex;
+            gap: 30px;
         }
-    </style>
-    <script>
-        document.addEventListener("contextmenu", function(event) {
-            event.preventDefault();
+            position: absolute;
+            top: 20px;
+            display: flex;
+            gap: 30px;
+        }
+        .nav a {
+            display: inline-block;
+            transition: filter 0.3s ease-in-out;
+        }
+        .nav a i {
+            color: white;
+            font-size: 24px;
+            opacity: 0.52;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .nav a:hover i {
+            opacity: 1;
+            
+        }
+        .nav a:hover img {
+            opacity: 1;
+            
+        }
+        .nav a:hover {
+            ~ .container .text, ~ .container .vertical-text {
+                opacity: 1;
+            }
+            
+            
+        }
+        .container {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 0;
+        }
+        .text {
+            font-family: 'Anton', sans-serif;
+            font-size: 180px;
+            color: rgba(255, 255, 255, 0.52);
+            opacity: 0.52;
+            transition: opacity 0.3s ease-in-out;
+            user-select: none;
+        }
+        .vertical-text {
+            display: flex;
+            align-items: center;
+            margin-bottom: -10px;
+            font-family: 'Anton', sans-serif;
+            font-size: 60px;
+            color: rgba(255, 255, 255, 0.52);
+            opacity: 0.52;
+            transition: opacity 0.3s ease-in-out;
+            user-select: none;
+            transform: rotate(-90deg);
+        }
+        body:active:not(.nav a:active) .text, 
+        body:active:not(.nav a:active) .vertical-text {
+            opacity: 1;
+        }
+            .nav a:active i {
+            opacity: 1;
+            animation: glowDelay 0.75s;
+        }
+        .nav a:active i {
+    		opacity: 1;
+	}
+        <script>
+        let holdTimer;
+        document.addEventListener('mousedown', function() {
+            holdTimer = setTimeout(() => {
+                document.querySelector('.text').style.opacity = '1';
+                document.querySelector('.vertical-text').style.opacity = '1';
+            }, 2500);
         });
-    </script>
+            holdTimer = setTimeout(() => {
+                document.querySelector('.text').style.opacity = '1';
+                document.querySelector('.vertical-text').style.opacity = '1';
+            }, 2500);
+        });
+        document.addEventListener('mouseup', function() {
+            clearTimeout(holdTimer);
+            document.querySelector('.text').style.opacity = '0.52';
+            document.querySelector('.vertical-text').style.opacity = '0.52';
+        });
+            clearTimeout(holdTimer);
+            document.querySelector('.text').style.opacity = '0.52';
+            document.querySelector('.vertical-text').style.opacity = '0.52';
+        });
+</script>
+</style>
 </head>
 <body>
-    <video autoplay loop muted>
-        <source src="KODEEN.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <div class="nav">
+        <a href="https://www.youtube.com/@SipKodeen" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://x.com/SipKodeen" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://github.com/SipKodeen" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://discord.gg/b7vgcqkDAk" target="_blank"><i class="fab fa-discord"></i></a>
+        <a href="https://www.instagram.com/sipkodeen/" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+    <div class="container">
+        <div class="vertical-text">DRINK</div>
+        <div class="text">KODEEN</div>
+    </div>
 </body>
 </html>
